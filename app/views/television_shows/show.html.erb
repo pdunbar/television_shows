@@ -1,3 +1,4 @@
+
 <h3><%= @television_show.title %></h3>
 
 <ul>
@@ -8,3 +9,32 @@
 <div>
   <%= @television_show.synopsis %>
 </div>
+<br/><br/><br/>
+
+<%= form_for [@television_show, @character] do |f| %>
+
+  <% if @character.errors.any? %>
+    <ul>
+      <% @character.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :actor %>
+    <%= f.text_field :actor %>
+  </div>
+
+  <div>
+    <%= f.label :character %>
+    <%= f.text_field :character %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <%= f.submit 'Submit' %>
+<% end %>
