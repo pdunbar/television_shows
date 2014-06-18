@@ -14,7 +14,6 @@ class TelevisionShowsController < ApplicationController
 
   def create
     @television_show = TelevisionShow.new(television_show_params)
-
     if @television_show.save
       flash[:notice] = "Success!"
       redirect_to '/television_shows'

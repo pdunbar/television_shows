@@ -1,4 +1,6 @@
 class Character < ActiveRecord::Base
-  validates :character, presence: true, uniqueness: { scope: :actor }
+  belongs_to :television_shows
+
+  validates :character, presence: true, uniqueness: { scope: :actor, message: "character already exists" }
   validates :actor, presence: true
 end

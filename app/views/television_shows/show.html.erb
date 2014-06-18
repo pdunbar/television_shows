@@ -38,3 +38,11 @@
 
   <%= f.submit 'Submit' %>
 <% end %>
+
+<ul>
+<% @television_show.characters.each do |character| %>
+  <li>Actor: <%= character.actor %></li>
+  <li>Character: <%= character.character %></li>
+  <li>Description: <%= character.description %></li><br/>
+  <% end %>
+</ul>
