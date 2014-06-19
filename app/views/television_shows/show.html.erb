@@ -43,6 +43,7 @@
 <% @television_show.characters.each do |character| %>
   <li>Actor: <%= character.actor %></li>
   <li>Character: <%= character.character %></li>
-  <li>Description: <%= character.description %></li><br/>
+  <li>Description: <%= character.description %></li>
+  <%= link_to "Delete", character_path(character), :method => :delete %><br/>
   <% end %>
 </ul>

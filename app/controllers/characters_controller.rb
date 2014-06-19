@@ -1,4 +1,7 @@
 class CharactersController < ApplicationController
+  def index
+    @characters = Character.all
+  end
 
   def create
     @character = Character.new(character_params)
@@ -13,6 +16,17 @@ class CharactersController < ApplicationController
     end
   end
 
+
+  def destroy
+    @character = Character.find(params[:id])
+    @television_show = @character.television_show
+    if @character.destroy
+      redirect_to @television_show
+    else
+      flash.now[:notice] = "error! could not delete."
+      render 'television_shows/show'
+    end
+  end
 
   def character_params
     params.require(:character).permit(:actor, :character, :description)

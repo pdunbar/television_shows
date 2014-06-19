@@ -34,7 +34,7 @@ feature 'user adds a tv character' do
 
     visit "television_shows/#{show.id}"
     fill_in "Character", with: "Richard"
-    fill_in "Actor", with: "Stephen"
+    fill_in "Actor", with: "John"
     click_on "Submit"
 
     expect(page).to have_content "character already exists"
